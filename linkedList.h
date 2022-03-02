@@ -3,16 +3,17 @@
 #include <string.h>
 
 struct Node{
-  char *Id;
-  char *Desc;
-  char *Quantity;
-  char *DateExp;
-  char *Price;
+  char Id[32];
+  char Desc[32];
+  char Quantity[32];
+  char DateExp[32];
+  char Price[32];
 
   int data;
   struct Node *next;
   struct Node *prev;
 };
+
 
 /*  Function Name   :
     Description     :
@@ -42,11 +43,11 @@ struct Node* addToEmpty(struct Node* head, int data, char *Id, char *Desc, char 
     temp->prev = NULL;
     temp->data = data;
     //printf("%s,%s,%s,%s,%s first Node Insert\n",Id,Desc,Quantity,DateExp,Price);
-    temp->Id = Id;
-    temp->Desc = Desc;
-    temp->Quantity = Quantity;
-    temp->DateExp = DateExp;
-    temp->Price = Price;
+    strcpy(temp->Id, Id);
+    strcpy(temp->Desc, Desc);
+    strcpy(temp->Quantity, Quantity);
+    strcpy(temp->DateExp, DateExp);
+    strcpy(temp->Price, Price);
 
     head = temp;
     return head;
@@ -64,11 +65,11 @@ struct Node* addAtBeg(struct Node* head, int data, char *Id, char *Desc, char *Q
     temp->next = NULL;
     temp->prev = NULL;
     temp->data = data;
-    temp->Id = Id;
-    temp->Desc = Desc;
-    temp->Quantity = Quantity;
-    temp->DateExp = DateExp;
-    temp->Price = Price;
+    strcpy(temp->Id, Id);
+    strcpy(temp->Desc, Desc);
+    strcpy(temp->Quantity, Quantity);
+    strcpy(temp->DateExp, DateExp);
+    strcpy(temp->Price, Price);
 
     temp->next = head;
     head = temp;
@@ -161,13 +162,13 @@ struct Node* addAtEnd(struct Node* head, int data, char *Id, char *Desc, char *Q
     temp->prev = NULL;
     temp->next = NULL;
     temp->data = data;
-    temp->Id = Id;
-    temp->Desc = Desc;
-    temp->Quantity = Quantity;
-    temp->DateExp = DateExp;
-    temp->Price = Price;
+    strcpy(temp->Id, Id);
+    strcpy(temp->Desc, Desc);
+    strcpy(temp->Quantity, Quantity);
+    strcpy(temp->DateExp, DateExp);
+    strcpy(temp->Price, Price);
 
-    printf("%s,%s,%s,%s,%s End Node Insert\n",Id,Desc,Quantity,DateExp,Price);
+    // printf("%s,%s,%s,%s,%s End Node Insert\n",Id,Desc,Quantity,DateExp,Price);
 
     tp = head;
 
@@ -191,7 +192,7 @@ struct Node* addAtEnd(struct Node* head, int data, char *Id, char *Desc, char *Q
 */
 char *strtok(char *str, const char *delim);
 
-
+/*
 int main()
 {
     /*
@@ -201,7 +202,7 @@ int main()
     head->next = NULL;  //default value
     head->prev = NULL;  //default value
     head->data = 0;     //default value
-    */
+    
 
     struct Node* head = NULL;
     struct Node* ptr;
@@ -311,7 +312,7 @@ int main()
             count++;
         }
 
-        //printf("ADD TO END:%s,%s,%s,%s,%s\n",UId,Desc,Quantity,DateExp,Price);
+        // printf("ADD TO END:%s,%s,%s,%s,%s\n",UId,Desc,Quantity,DateExp,Price);
         // printf("%s",line);
         // head = addAtEnd(head,0,line);
         
@@ -322,10 +323,10 @@ int main()
     
     // head = NULL;
     // head = addToEmpty(head,0,"11101","Nat. Spring (500mL)","200","-","10.50");//testing
-    head = addAtEnd(head,0,"11201","Nat. Spring (1L)","100","-","16.00");
-    head = addAtEnd(head,0,"11202","Nat. Spring (1L)","300","-","16.50");
-    head = addAtEnd(head,0,"12101","Datu Puti Vinegar (1L)","100"  ,"2022-03-22","38.25");
-    head = addAtEnd(head,0,"51101","Nivea Silver Protect (50mL)","50","2023-08-31","45.00");
+    // head = addAtEnd(head,0,"11201","Nat. Spring (1L)","100","-","16.00");
+    // head = addAtEnd(head,0,"11202","Nat. Spring (1L)","300","-","16.50");
+    // head = addAtEnd(head,0,"12101","Datu Puti Vinegar (1L)","100"  ,"2022-03-22","38.25");
+    // head = addAtEnd(head,0,"51101","Nivea Silver Protect (50mL)","50","2023-08-31","45.00");
 
     ptr = head;
     while (ptr != NULL)
@@ -335,7 +336,8 @@ int main()
     }
 
     fclose(fpointer);
-    //End of FileAccess*/
+    //End of FileAccess
     
     return 0;
-}
+
+}*/
