@@ -4,7 +4,7 @@
 
 struct Node{
   char Id[32];
-  char Desc[32];
+  char Desc[128];
   char Quantity[32];
   char DateExp[32];
   char Price[32];

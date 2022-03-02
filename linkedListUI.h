@@ -60,7 +60,7 @@ void importCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("inventory.csv", "r");
+    fp = fopen("Inventory_ST_NoBOM.csv", "r");
     const char s[2] = ",";
 
     char *token;
@@ -71,7 +71,7 @@ void importCsv()
     char DateExp[32];
     char Price[32];
 
-    int count = 0;
+    
 
     if(fp == NULL)
     {
@@ -87,11 +87,10 @@ void importCsv()
         
         /* walk through other tokens */
         addInventory("UId","Desc","Quantity","DateExp","Price");
-
+        int count = 0;
         while( token != NULL ) {
+            
             printf( "*%s\n", token );
-            
-            
             getLast();
             
             
@@ -100,12 +99,9 @@ void importCsv()
             switch (count)
             {
             case 0:
-                strncpy(UId, &token[4],strlen(token)-5);
-                UId[strlen(token)-5] = '\0';
-                
-                printf(">%s\n",&UId);
-                
-                
+                strncpy(UId, &token[0],strlen(token));
+                UId[strlen(token)] = '\0';
+                printf("pass");
                 setId(ptr,UId);
                 break;
             case 1:
@@ -131,6 +127,7 @@ void importCsv()
                 Price[strlen(token)] = '\0';
 
                 setPrice(ptr,Price);
+                
                 break;
             
             default:
