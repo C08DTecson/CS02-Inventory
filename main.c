@@ -6,7 +6,9 @@
 
 int main()
 {
-
+    /*
+        DELTE THIS ONCE PUSHING TO DEV
+    */
     initializeList();
     addInventory("123","aaa","aaa","aaaa","aaaaa");
     importCsv();

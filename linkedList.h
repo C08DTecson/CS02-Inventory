@@ -192,7 +192,7 @@ struct Node* addAtEnd(struct Node* head, int data, char *Id, char *Desc, char *Q
 */
 char *strtok(char *str, const char *delim);
 
-/*
+/* OLD MAIN FOR PROGRAM DELETE ONCE YOU COMPLETE MAIN
 int main()
 {
     /*
