@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "ViewList.h"
+#include "test.h"
+#include "searchFunc.h"
+#include "viewList.h"
 
 int menuMain();
 char userIn[2];
@@ -17,11 +19,12 @@ int menuMain()
 	printf("[B] Update Inventory Item\n");
 	printf("[C] View Inventory List\n");
 	printf("[X] Exit System\n\n");
-	printf("Please Enter your desired function:");
+	printf("Please enter your desired function:");
 
 	do
 	{
-		scanf(" %c", &userIn[0], 1);
+		scanf_s(" %c", &userIn[0], 1);
+		scanf("%*[^\n]%*1[\n]"); //ignores all other buffering inputs aside from the first character.
 		switch (userIn[0])
 		{
 			case 'a':
@@ -29,6 +32,7 @@ int menuMain()
 				printf("---------------------\n");
 				printf("ADDING INVENTORY ITEM\n");
 				printf("---------------------\n");
+				addItem();
 				break;
 
 			case 'b':
@@ -36,19 +40,18 @@ int menuMain()
 				printf("-----------------------\n");
 				printf("UPDATING INVENTORY ITEM\n");
 				printf("-----------------------\n");
+				searchItem();
 				break;
-		
+
 			case 'c':
 			case 'C':
-				{
 				printf("----------------------\n");
 				printf("VIEWING INVENTORY LIST\n");
-				printf("----------------------\n\n");
-				
+				printf("----------------------\n");
 				ViewList();
-				}	
 				break;
-				
+
+
 			case 'x':
 			case 'X':
 				printf("Thank you for using the G1 Inventory System!\n");
@@ -56,14 +59,13 @@ int menuMain()
 
 			default:
 				printf("Invalid Input, please try again.\n");
-				scanf("%*[^\n]%*1[\n]");
 				continue;
 		}
 		break;//exits the do while loop when a valid input is selected.
 	} while (running == true); //To keep entering an input until it is valid
 
-		return 0;
+	return 0;
 
 
-		
+
 }
