@@ -11,13 +11,17 @@ int main()
     */
     initializeList();
     importCsv();
-    addInventory("000123","aaa","aaa","aaaa","aaaaa");
-    // struct Node* sample;
+    
+    // struct Node* head = getHead();
+    head = mergeSort(head);
+
+    // addInventory("000123","aaa","aaa","aaaa","aaaaa");
+    // struct Node* sample = getMid();
 
     // strncpy(sample->Id,"11107",5);
     // sample->Id[5]= '\0';
 
-    // printf("%s\n",sample->Id);
+    // printf(">>>%s<<<\n",sample->Id);
 
     // sample = getNode(sample);
     // printf("%s<>%s",sample->Id,sample->Desc);

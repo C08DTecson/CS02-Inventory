@@ -13,13 +13,17 @@ int strcmp (const char* str1, const char* str2);
 void initializeList()
 {
     head = NULL;
-    head = addToEmpty(head,0,"ID","Desc","Quantity","DateExp","Price");
+    head = addToEmpty(head,0,"99999","Desc","Quantity","DateExp","Price");
 
 }
 
 void addInventory(char *UId,char *Desc,char *Quantity,char *DateExp,char *Price)
 {
     head = addAtEnd(head,0,UId,Desc,Quantity,DateExp,Price);
+}
+struct Node* getHead()
+{
+    return head;
 }
 
 struct Node* getLast()
@@ -35,21 +39,21 @@ struct Node* getLast()
 
 struct Node* getNode(struct Node* temp)
 {
-   ptr=head;
+    ptr=head;
 
-//    while (strcmp(ptr->Id, temp->Id))
-//    {
-//        printf("%s ,- %s\n",ptr->Id,temp->Id);
-//        if (ptr->next==NULL)
-//        {
-//            break;
-//        }
-//        if (ptr->Id == temp->Id)
-//        {   
-//             break;
-//        }
-//        ptr=ptr->next;
-//    }
+    while (strcmp(ptr->Id, temp->Id))
+    {
+        printf("%s ,- %s\n",ptr->Id,temp->Id);
+        if (ptr->next==NULL)
+        {
+            break;
+        }
+        if (ptr->Id == temp->Id)
+        {   
+            break;
+        }
+        ptr=ptr->next;
+}
 
     // int a;   
     // sscanf(ptr->Id, "%d", &a);//parses address into int
@@ -73,7 +77,7 @@ struct Node* getNode(struct Node* temp)
     //     }
     // }
 
-   return ptr;
+    return ptr;
 }
 
 void setId(struct Node* ptr,char *UId)
@@ -105,7 +109,7 @@ void importCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("Inventory.csv", "r");
+    fp = fopen("sample.csv", "r");
     const char s[2] = ",";
 
     char *token;
@@ -190,25 +194,156 @@ void importCsv()
 
 void Display()
 {
+    printf("pass\n"); 
     ptr = head;
     while (ptr != NULL)
     {
-        printf("%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        printf("%d,\"%s\",%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
 }
+/* Failed Sort
+struct Node* getMid()
+{
+    struct Node* slow = head;
+    struct Node* fast = head->next;
+
+    while (fast!=NULL&&fast->next!=NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    
+    return slow;
+    
+    
+}
+
+struct Node* Merge(struct Node* first, struct Node* second)
+{
+    struct Node* dummy;
+    struct Node* tail = getLast();
+
+    int listVal1;
+    int listVal2;
+
+    sscanf(first->Id, "%d", &listVal1);//parses address into int
+    sscanf(second->Id, "%d", &listVal2);//parses address into int
+
+    while (first != NULL && second != NULL)
+    {
+        
+        if (listVal1<listVal2)
+        {   
+            
+            first -> next = Merge(first->next,second);
+            first -> next -> prev = first;
+            first -> prev = NULL;
+            return first;
+        }
+        else
+        {
+            second->next = Merge(first,second->next);
+            second->next->prev = second;
+            second->prev = NULL;
+            return second;
+        }
+    }
+}
+
+struct Node* Sort(struct Node* head)
+{
+    if (head==NULL)
+    {
+        // return head;
+    }
+    if (head->next==NULL)
+    {
+        // return head;
+    }
+    struct Node* second = getMid();
+
+    head=Sort(head);
+    second = Sort(second);
+
+    return Merge(head,second);
+
+}*/
 
 void exportCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("Inventory_ST_NoBOM1.csv", "w");
+    fp = fopen("sample.csv", "w");
 
     ptr = head->next;
     while (ptr != NULL)
     {
-        fprintf(fp,"%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        fprintf(fp,"%d,\"%s\",%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
     fclose(fp);
+}
+
+//start merge sort
+struct Node *split(struct Node *head);
+
+struct Node *merge(struct Node *first, struct Node *second)
+{
+    // If first linked list is empty
+    if (!first)
+        return second;
+ 
+    // If second linked list is empty
+    if (!second)
+        return first;
+ 
+    int listVal1;
+    int listVal2;
+
+    sscanf(first->Id, "%d", &listVal1);//parses address into int
+    sscanf(second->Id, "%d", &listVal2);//parses address into int
+
+    // Pick the smaller value
+    if (listVal1 < listVal2)
+    {
+        first->next = merge(first->next,second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
+    }
+    else
+    {
+        second->next = merge(first,second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+    }
+}
+
+struct Node *mergeSort(struct Node *head)
+{
+    if (!head || !head->next)
+        return head;
+    struct Node *second = split(head);
+ 
+    // Recur for left and right halves
+    head = mergeSort(head);
+    second = mergeSort(second);
+ 
+    // Merge the two sorted halves
+    return merge(head,second);
+}
+
+struct Node *split(struct Node *head)
+{
+    struct Node *fast = head,*slow = head;
+    while (fast->next && fast->next->next)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    struct Node *temp = slow->next;
+    slow->next = NULL;
+    return temp;
 }
