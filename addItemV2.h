@@ -27,9 +27,9 @@ typedef struct item
 
 int addItem()
 {
-    // FILE* inven;
+    FILE* inven;
     struct item invenItem;
-    // inven = fopen("inventory.csv", "a+");
+    inven = fopen("inventory.csv", "a+");
 
     
 
@@ -41,25 +41,25 @@ int addItem()
     do
     {
         printf("Enter Item ID: ");
-        // scanf(invenItem.id, 255);
-        scanf("%s", &invenItem.id);
+        scanf(invenItem.id, 255);
+        // scanf("%s", &invenItem.id);
         // printf("%s", &invenItem.id);
 
         
-        // for (x = 0; x != 5; x++)
-        // {
-        //     if ((isdigit(invenItem.id[x]) == 0) || strlen(invenItem.id) != 5 || (invenItem.id == '\0'))
-        //     {
-        //         printf("Invalid ID format, please try again.\n");
-        //         break;
-        //     }
+        for (x = 0; x != 5; x++)
+        {
+            if ((isdigit(invenItem.id[x]) == 0) || strlen(invenItem.id) != 5 || (invenItem.id == '\0'))
+            {
+                printf("Invalid ID format, please try again.\n");
+                break;
+            }
 
-        //     else
-        //     {
-        //         check = check + 1;
-        //     }
+            else
+            {
+                check = check + 1;
+            }
 
-        // }
+        }
 
         if (strlen(invenItem.id) == 5)
         {
@@ -227,53 +227,40 @@ int addItem()
         }
     }
 
-    //_itoa(invenItem.id, idCheck, 10); //convert int input to string
-    //ID Checking if Product Exists
-    // while (!feof(inven))
-    // {
-    //     x = getc(inven);
-    //     fgets(str1, 255, inven);
-    //     strncpy(str2, str1, 5);
-    //     existID = strcmp(invenItem.id, str2);
+    // _itoa(invenItem.id, idCheck, 10); //convert int input to string
+    // ID Checking if Product Exists
+    while (!feof(inven))
+    {
+        x = getc(inven);
+        fgets(str1, 255, inven);
+        strncpy(str2, str1, 5);
+        existID = strcmp(invenItem.id, str2);
 
 
 
-    //     if (existID == 0)
-    //     {
-    //         printf("Product ID already Exists. Please try again.\n");
-    //         break;
-    //     }
-    // }
+        if (existID == 0)
+        {
+            printf("Product ID already Exists. Please try again.\n");
+            break;
+        }
+    }
 
-    // if (existID != 0)
-    // {
-    //     fprintf(inven, "\n\"%s\", \"%s\", \"%s\", \"%s-%s-%s\", \"%0.2f\"", invenItem.id, invenItem.desc, invenItem.quan, invenItem.yy, invenItem.mm, invenItem.dd, invenItem.price);
-    //     printf("Successfully added a new product to the inventory.\n");
-    //     printf("\n\"%s\", \"%s\", \"%s\", \"%s-%s-%s\", \"%0.2f\"", invenItem.id, invenItem.desc, invenItem.quan, invenItem.yy, invenItem.mm, invenItem.dd, invenItem.price);
-    // }
+    if (existID != 0)
+    {
+        fprintf(inven, "\n\"%s\", \"%s\", \"%s\", \"%s-%s-%s\", \"%0.2f\"", invenItem.id, invenItem.desc, invenItem.quan, invenItem.yy, invenItem.mm, invenItem.dd, invenItem.price);
+        printf("Successfully added a new product to the inventory.\n");
+        printf("\n\"%s\", \"%s\", \"%s\", \"%s-%s-%s\", \"%0.2f\"", invenItem.id, invenItem.desc, invenItem.quan, invenItem.yy, invenItem.mm, invenItem.dd, invenItem.price);
+    }
         
     
-
-    struct Node* sample;
-    setId(sample,"51102");
-    sample = getNode(sample);
-
-    if (strcmp(sample->Id, head->Id))
-    {
-        /* code */
-        printf("Product ID does not Exists.\n");
-    }
-    else
-    {
-        printf("Product ID already Exists. Please try again.\n");
-    }
-    
     
     
 
-    // fclose(inven);
+    fclose(inven);
 
 }
+
+
 void addItem2()
 {
     char UId[32];
