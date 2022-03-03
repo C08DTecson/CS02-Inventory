@@ -7,6 +7,7 @@ struct Node* head = NULL;
 struct Node* ptr;
 
 char *strtok(char *str, const char *delim);
+int strcmp (const char* str1, const char* str2);
 
 
 void initializeList()
@@ -29,6 +30,27 @@ struct Node* getLast()
     }
     
     return ptr;
+}
+
+struct Node* getNode(struct Node* temp)
+{
+   ptr=head;
+
+   while (strcmp(ptr->Id, temp->Id))
+   {
+       printf("%s ,- %s\n",ptr->Id,temp->Id);
+       if (ptr->next==NULL)
+       {
+           break;
+       }
+       if (ptr->Id == temp->Id)
+       {
+           break;
+       }
+       ptr=ptr->next;
+   }
+   
+   return ptr;
 }
 
 void setId(struct Node* ptr,char *UId)
@@ -81,7 +103,8 @@ void importCsv()
 
     while( fgets(str, 255, fp) != NULL )
     {
-        printf("%s",str);       
+        //this print is used to identify line
+        // printf("%s",str);       
         /* get the first token */
         token = strtok(str, s);
         
@@ -90,7 +113,8 @@ void importCsv()
         int count = 0;
         while( token != NULL ) {
             
-            printf( "*%s\n", token );
+            //this print is used to identify token
+            // printf( "*%s\n", token );
             getLast();
             
             
@@ -99,9 +123,8 @@ void importCsv()
             switch (count)
             {
             case 0:
-                strncpy(UId, &token[0],strlen(token));
-                UId[strlen(token)] = '\0';
-                printf("pass");
+                strncpy(UId, &token[1],5);
+                UId[5] = '\0';
                 setId(ptr,UId);
                 break;
             case 1:
@@ -124,6 +147,7 @@ void importCsv()
                 break;
             case 4:
                 strncpy(Price,&token[0],strlen(token));
+                Price[strlen(token)-1] = '\n';
                 Price[strlen(token)] = '\0';
 
                 setPrice(ptr,Price);
@@ -148,7 +172,22 @@ void Display()
     ptr = head;
     while (ptr != NULL)
     {
-        printf("%d,%s,%s,%s,%s,%s\n",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        printf("%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
+}
+
+void exportCsv()
+{
+    char str[255];
+    FILE *fp;
+    fp = fopen("Inventory_ST_NoBOM1.csv", "w");
+
+    ptr = head->next;
+    while (ptr != NULL)
+    {
+        fprintf(fp,"%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        ptr = ptr->next;
+    }
+    fclose(fp);
 }

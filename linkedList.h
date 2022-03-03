@@ -10,6 +10,7 @@ struct Node{
   char Price[32];
 
   int data;
+  
   struct Node *next;
   struct Node *prev;
 };
