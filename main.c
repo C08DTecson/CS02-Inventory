@@ -12,18 +12,18 @@ int main()
     initializeList();
     importCsv();
     addInventory("000123","aaa","aaa","aaaa","aaaaa");
-    struct Node* sample;
+    // struct Node* sample;
 
-    strncpy(sample->Id,"11107",5);
-    sample->Id[5]= '\0';
+    // strncpy(sample->Id,"11107",5);
+    // sample->Id[5]= '\0';
 
-    printf("%s\n",sample->Id);
+    // printf("%s\n",sample->Id);
 
-    sample = getNode(sample);
+    // sample = getNode(sample);
     // printf("%s<>%s",sample->Id,sample->Desc);
 
     
-    // Display();
+    Display();
     // exportCsv();
 
     return 0;

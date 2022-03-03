@@ -17,7 +17,8 @@ void initializeList()
 
 }
 
-void addInventory(char *UId,char *Desc,char *Quantity,char *DateExp,char *Price){
+void addInventory(char *UId,char *Desc,char *Quantity,char *DateExp,char *Price)
+{
     head = addAtEnd(head,0,UId,Desc,Quantity,DateExp,Price);
 }
 
@@ -36,28 +37,42 @@ struct Node* getNode(struct Node* temp)
 {
    ptr=head;
 
-   while (strcmp(ptr->Id, temp->Id))
-   {
-       printf("%s ,- %s\n",ptr->Id,temp->Id);
-       if (ptr->next==NULL)
-       {
-           break;
-       }
-       if (ptr->Id == temp->Id)
-       {
-            
-            break;
-;
-       }
-       ptr=ptr->next;
-   }
-    int a;   
-    sscanf(ptr->Id, "%d", &a);
-    int b;
-    sscanf(temp->Id, "%d", &b);
+//    while (strcmp(ptr->Id, temp->Id))
+//    {
+//        printf("%s ,- %s\n",ptr->Id,temp->Id);
+//        if (ptr->next==NULL)
+//        {
+//            break;
+//        }
+//        if (ptr->Id == temp->Id)
+//        {   
+//             break;
+//        }
+//        ptr=ptr->next;
+//    }
 
-    int c = a+b;
-    printf("%d<<<<>>>%d",a,c);
+    // int a;   
+    // sscanf(ptr->Id, "%d", &a);//parses address into int
+    // int b;
+    // sscanf(temp->Id, "%d", &b);//parses address into int
+
+    // int idCheck = b;
+    // int mid, low = 0, high = intLimit;
+    // for (int test=0; test < (99999/2); test++)
+    // {
+    //     mid = (low + high)/2;
+    //     if (idCheck == invenData[mid]){
+    //         printf("Valid ID Found");
+    //         break;
+    //     }
+    //     else if (idCheck > invenData[mid]){
+    //         low = mid + 1;
+    //     }
+    //     else{
+    //         high = mid - 1;
+    //     }
+    // }
+
    return ptr;
 }
 
@@ -90,7 +105,7 @@ void importCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("Inventory_ST_NoBOM.csv", "r");
+    fp = fopen("Inventory.csv", "r");
     const char s[2] = ",";
 
     char *token;
@@ -124,8 +139,6 @@ void importCsv()
             //this print is used to identify token
             // printf( "*%s\n", token );
             getLast();
-            
-            
             // printf("?%s\n",ptr->Id);
 
             switch (count)
