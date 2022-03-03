@@ -10,15 +10,15 @@ bool running = true;
 
 int menuMain()
 {
-	printf("\t-----------------------------\n");
+	printf("-----------------------------\n");
 	printf("  GROUP 1 INVENTORY SYSTEM\n");
-	printf("\t-----------------------------\n");
-	printf("\tMAIN MENU\n");
-	printf("\t[A] Add Inventory Item\n");
-	printf("\t[B] Update Inventory Item\n");
-	printf("\t[C] View Inventory List\n");
-	printf("\t[X] Exit System\n\n");
-	printf("\tPlease enter your desired function:");
+	printf("-----------------------------\n");
+	printf("MAIN MENU\n");
+	printf("[A] Add Inventory Item\n");
+	printf("[B] Update Inventory Item\n");
+	printf("[C] View Inventory List\n");
+	printf("[X] Exit System\n\n");
+	printf("Please enter your desired function:");
 
 	do
 	{

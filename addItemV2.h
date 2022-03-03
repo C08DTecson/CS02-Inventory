@@ -30,37 +30,43 @@ int idInput()
     struct item invenItem;
     inven = fopen("inventory.csv", "a+");
 
+    printf("-----------------------------\n");
+    printf("   ADDING INVENTORY ITEM\n");
+    printf("-----------------------------\n");
+
     //ID Code
     do
     {
-        printf("Enter ID Code: ");
+        printf("Enter Item ID: ");
         invenItem.id = 0;
         invenItem.id = getInt();
 
         if ((invenItem.id <= 9999) || (invenItem.id >= 99999))
         {
-            printf("Invalid Input, try again\n");
+            printf("Invalid ID format, try again.\n");
         }
 
         else
         {
-            printf("\nID Code Accepted\n");
+            printf("\nItem ID accepted.\n");
             break;
         }
     } while (scan == true);
     printf("%d\n", invenItem.id);
 
     //Item Desc
-    printf("Enter the Product Description: ");
+    printf("Enter the Item Description: ");
     scanf(" %[^\n]s", &invenItem.desc);
     getchar();
     printf("%s\n", invenItem.desc); //checking
+    printf("Successfully added Item Description.\n");
 
     //Product Quan
-    printf("Enter Product Quantity: ");
+    printf("Enter Quantity: ");
     invenItem.quan = 0;
     invenItem.quan = getInt();
     printf("\n%d\n", invenItem.quan);
+    printf("Item quantity accepted.\n");
 
     //Expiry Date
     printf("Enter Product Expiry(YYYY/MM/DD):\n");
@@ -131,7 +137,7 @@ int idInput()
     while (scan == true)
     {
         invenItem.price = 0;
-        printf("Enter price: ");
+        printf("Enter Price: ");
         fgets(buf, 45, stdin);
         sscanf(buf, " %f", &invenItem.price);
         if (invenItem.price <= 0)
@@ -159,7 +165,6 @@ int idInput()
             printf("Product ID already Exists. Please try again.\n");
             break;
         }
-
     }
 
     if (existID != 0)
