@@ -32,7 +32,7 @@ int searchItem()
     }
     printf("%d\n", intLimit);
     int mid, low = 0, high = intLimit;
-    for (test=0;test<10; test++)
+    for (test=0;test < (intLimit/2); test++)
     {
         mid = (low + high)/2;
         if (idCheck == invenData[mid]){
@@ -42,12 +42,8 @@ int searchItem()
         else if (idCheck > invenData[mid]){
             low = mid + 1;
         }
-        else if (idCheck < invenData[mid]){
+        else{
             high = mid - 1;
-        }
-        else if (idCheck != invenData[mid]){
-            printf("The ID does not exist.");
-            break;
         }
     }
     fclose(item);
