@@ -1,8 +1,10 @@
 // #include "linkedList.h"
 #include "linkedListUI.h"
+#include "mainMenu.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+
 
 int main()
 {
@@ -13,7 +15,7 @@ int main()
     importCsv();
     
     // struct Node* head = getHead();
-    head = mergeSort(head);
+    // head = mergeSort(head);
 
     // addInventory("000123","aaa","aaa","aaaa","aaaaa");
     // struct Node* sample = getMid();
@@ -27,8 +29,10 @@ int main()
     // printf("%s<>%s",sample->Id,sample->Desc);
 
     
-    Display();
+    // Display();
     // exportCsv();
+
+    // menuMain();
 
     return 0;
 }
