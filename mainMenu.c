@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "test.h"
-#include "searchFunc.h"
-#include "viewList.h"
 
 int menuMain();
 char userIn[2];
 bool running = true;
+
+int addItem(){}
+int searchItem(){}
+int viewList(){}
+
 
 int menuMain()
 {
