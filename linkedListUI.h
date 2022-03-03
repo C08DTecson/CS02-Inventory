@@ -45,11 +45,19 @@ struct Node* getNode(struct Node* temp)
        }
        if (ptr->Id == temp->Id)
        {
-           break;
+            
+            break;
+;
        }
        ptr=ptr->next;
    }
-   
+    int a;   
+    sscanf(ptr->Id, "%d", &a);
+    int b;
+    sscanf(temp->Id, "%d", &b);
+
+    int c = a+b;
+    printf("%d<<<<>>>%d",a,c);
    return ptr;
 }
 

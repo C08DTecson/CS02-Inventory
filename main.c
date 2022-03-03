@@ -20,7 +20,7 @@ int main()
     printf("%s\n",sample->Id);
 
     sample = getNode(sample);
-    printf("%s<>%s",sample->Id,sample->Desc);
+    // printf("%s<>%s",sample->Id,sample->Desc);
 
     
     // Display();
