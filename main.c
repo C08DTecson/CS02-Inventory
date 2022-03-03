@@ -1,5 +1,5 @@
 // #include "linkedList.h"
-#include "linkedListUI.h"
+// #include "linkedListUI.h"
 #include "mainMenu.h"
 
 #include <stdio.h>
@@ -8,31 +8,30 @@
 
 int main()
 {
-    /*
-        DELTE THIS ONCE PUSHING TO DEV
-    */
     initializeList();
     importCsv();
     
     // struct Node* head = getHead();
     // head = mergeSort(head);
 
-    // addInventory("000123","aaa","aaa","aaaa","aaaaa");
-    // struct Node* sample = getMid();
-
-    // strncpy(sample->Id,"11107",5);
-    // sample->Id[5]= '\0';
-
-    // printf(">>>%s<<<\n",sample->Id);
-
+    // addInventory("00123","aaa","aaa","aaaa","aaaaa");
+    // struct Node* sample;
+    // setId(sample,"14105");
     // sample = getNode(sample);
     // printf("%s<>%s",sample->Id,sample->Desc);
+
+    // strncpy(sample->Id,"12102",5);
+    // sample->Id[5]= '\0';
+    // printf(">>>%s<<<\n",sample->Id);
+
+    
 
     
     // Display();
     // exportCsv();
 
-    // menuMain();
+    menuMain();
+
 
     return 0;
 }

@@ -43,9 +43,10 @@ struct Node* getNode(struct Node* temp)
 
     while (strcmp(ptr->Id, temp->Id))
     {
-        printf("%s ,- %s\n",ptr->Id,temp->Id);
+        // printf("%s ,- %s\n",ptr->Id,temp->Id);
         if (ptr->next==NULL)
         {
+            ptr=head;
             break;
         }
         if (ptr->Id == temp->Id)
@@ -80,7 +81,7 @@ struct Node* getNode(struct Node* temp)
     return ptr;
 }
 
-void setId(struct Node* ptr,char *UId)
+void setId(struct Node* ptr,char UId[32])
 {
     strcpy(ptr->Id, UId);
 }
@@ -109,7 +110,7 @@ void importCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("sample.csv", "r");
+    fp = fopen("Inventory_ST_NoBOM.csv", "r");
     const char s[2] = ",";
 
     char *token;
@@ -148,8 +149,8 @@ void importCsv()
             switch (count)
             {
             case 0:
-                strncpy(UId, &token[1],5);
-                UId[5] = '\0';
+                strncpy(UId, &token[0],7);
+                UId[7] = '\0';
                 setId(ptr,UId);
                 break;
             case 1:
@@ -194,11 +195,11 @@ void importCsv()
 
 void Display()
 {
-    printf("pass\n"); 
+    // printf("pass\n"); 
     ptr = head;
     while (ptr != NULL)
     {
-        printf("%d,\"%s\",%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        printf("%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
 }
@@ -274,12 +275,12 @@ void exportCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("sample.csv", "w");
+    fp = fopen("sample1.csv", "w");
 
     ptr = head->next;
     while (ptr != NULL)
     {
-        fprintf(fp,"%d,\"%s\",%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        fprintf(fp,"%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
     fclose(fp);

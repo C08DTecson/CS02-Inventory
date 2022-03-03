@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "linkedlist.h": "c"
+        "linkedlist.h": "c",
+        "mainmenu.h": "c",
+        "linkedlistui.h": "c"
     }
 }
