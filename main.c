@@ -33,7 +33,7 @@ int main()
 
     menuMain();
 
-    // exportCsv();
+    exportCsv();
 
 
     return 0;

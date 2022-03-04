@@ -47,6 +47,7 @@ struct Node* getNode(struct Node* temp)
         if (ptr->next==NULL)
         {
             ptr=head;
+            printf("This ID does not exist\n");
             break;
         }
         if (ptr->Id == temp->Id)

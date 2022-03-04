@@ -30,7 +30,7 @@ int menuMain()
 			case 'A':
 				printf("Adding Inventory Item\n");
 				system("cls");
-				addItem2();
+				addItem();
 				// Display();
 				// exportCsv();
 				break;
@@ -47,7 +47,6 @@ int menuMain()
 
 				strncpy(userInU,&userInA[5],7);
 				userInU[7] = '\0';
-				
 				
 				// printf("%s\n",userInU);
 
