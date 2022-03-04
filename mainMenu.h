@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "ViewList.h"
 
 int menuMain();
 char userIn[2];
@@ -34,7 +35,7 @@ int menuMain()
 				printf("---------------------\n");
 				printf("ADDING INVENTORY ITEM\n");
 				printf("---------------------\n");
-				addItem();
+				//addItem();
 				break;
 
 			case 'b':
@@ -42,7 +43,7 @@ int menuMain()
 				printf("-----------------------\n");
 				printf("UPDATING INVENTORY ITEM\n");
 				printf("-----------------------\n");
-				searchItem();
+				//searchItem();
 				break;
 
 			case 'c':
