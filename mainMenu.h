@@ -21,7 +21,7 @@ int menuMain()
 	do
 	{
 		
-		scanf("%c", &userIn);
+		gets(userIn);
 		if (strlen(userIn) == 1)
 		{
 			switch (userIn[0])
@@ -31,8 +31,8 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem2();
-				Display();
-				exportCsv();
+				// Display();
+				// exportCsv();
 				break;
 
 			case 'b':
@@ -56,7 +56,7 @@ int menuMain()
 				// char uSet[32]= "\"14105\"";
 				setId(sample,userInU);
 				sample = getNode(sample);
-				printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel Update\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
+				printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel View\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
 				break;
 
 			case 'c':
@@ -65,7 +65,8 @@ int menuMain()
 				
 				// struct Node* head = getHead();
 				head = mergeSort(head);	
-				Display();
+				print(head);
+				// Display();
 				break;
 
 

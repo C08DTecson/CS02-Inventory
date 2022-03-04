@@ -2,8 +2,8 @@
 // #include "linkedListUI.h"
 #include "mainMenu.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
 
 int main()
@@ -13,7 +13,8 @@ int main()
     
     // struct Node* head = getHead();
     // head = mergeSort(head);
-
+    // print(head);
+    
     // addInventory("00123","aaa","aaa","aaaa","aaaaa");
     // struct Node* sample;
     // setId(sample,"14105");
@@ -25,12 +26,14 @@ int main()
     // printf(">>>%s<<<\n",sample->Id);
 
     
-
+    
     
     // Display();
     // exportCsv();
 
     menuMain();
+
+    // exportCsv();
 
 
     return 0;

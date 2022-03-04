@@ -13,7 +13,7 @@ int strcmp (const char* str1, const char* str2);
 void initializeList()
 {
     head = NULL;
-    head = addToEmpty(head,0,"99999","Desc","Quantity","DateExp","Price");
+    head = addToEmpty(head,0,"99999","Desc","Quantity","DateExp","Price\n");
 
 }
 
@@ -199,7 +199,7 @@ void Display()
     ptr = head;
     while (ptr != NULL)
     {
-        printf("%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
+        printf("%s,%s,%s,%s,%s",ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
 }
@@ -334,6 +334,31 @@ struct Node *mergeSort(struct Node *head)
  
     // Merge the two sorted halves
     return merge(head,second);
+}
+void print(struct Node *head)
+{
+    struct Node *temp = head;
+    // printf("Forward Traversal using next pointer\n");
+    while (head)
+    {
+        // printf("%s,%s,%s,%s,%s",head->Id,head->Desc,head->Quantity,head->DateExp,head->Price);
+        temp = head;
+        head = head->next;
+    }
+    // printf("\nBackward Traversal using prev pointer\n");
+    while (temp)
+    {
+        printf("%s,%s,%s,%s,%s",temp->Id,temp->Desc,temp->Quantity,temp->DateExp,temp->Price);
+        temp = temp->prev;
+    }
+}
+
+
+void swap(int *A, int *B)
+{
+    int temp = *A;
+    *A = *B;
+    *B = temp;
 }
 
 struct Node *split(struct Node *head)

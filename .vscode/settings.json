@@ -2,6 +2,7 @@
     "files.associations": {
         "linkedlist.h": "c",
         "mainmenu.h": "c",
-        "linkedlistui.h": "c"
+        "linkedlistui.h": "c",
+        "stdio.h": "c"
     }
 }
