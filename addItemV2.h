@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
 
@@ -37,7 +34,7 @@ int addItem()
     do
     {
         printf("Enter Item ID: ");
-        gets_s(invenItem.id, 255);
+        gets(invenItem.id);
         check = 0;
         for (x = 0; x != 5; x++)
         {
@@ -74,7 +71,7 @@ int addItem()
     do
     {
         printf("Product Quantity: ");
-        gets_s(invenItem.quan, 255);
+        gets(invenItem.quan);
         check = 0;
         for (x = 0; x != strlen(invenItem.quan); x++)
         {
@@ -103,7 +100,7 @@ int addItem()
     while (scan == true)
     {
         printf("Year: ");
-        gets_s(invenItem.yy, 255);
+        gets(invenItem.yy);
         check = 0;
         for (x = 0; x != 4; x++)
         {
@@ -125,7 +122,7 @@ int addItem()
             while (scan == true)
             {
                 printf("Month: ");
-                gets_s(invenItem.mm, 255);
+                gets(invenItem.mm);
                 mmHolder = atoi(invenItem.mm);
                 for (x = 0; x != 2; x++)
                 {
@@ -145,7 +142,7 @@ int addItem()
                     while (scan == true)
                     {
                         printf("Date: ");
-                        gets_s(invenItem.dd, 255);
+                        gets(invenItem.dd);
                         ddHolder = atoi(invenItem.dd);
                         check = 0;
                         for (x = 0; x != 2; x++)
