@@ -27,7 +27,7 @@ int searchItem()
     {
         printf("Select Inventory Item: ");
         memset(userInU,0,strlen(userInU));
-        scanf("%s", &userInU);
+        scanf("%5s", &userInU);
 	    strcat(userInA,"\"");
 	    strcat(userInA,userInU);
 	    strcat(userInA,"\"");
