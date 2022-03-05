@@ -64,6 +64,8 @@ int searchItem()
                         break;
                     default:
                         printf("Invalid input. please try again.\n");
+                        verifyNo = 2;
+                        break;
                 }
         } while (verifyNo != 1);
         
