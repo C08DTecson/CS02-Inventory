@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+//#include "linkedListUI.h"
 
 int addItem();
 int priceCheck, existID, num, idInt;
@@ -27,7 +28,7 @@ int addItem()
 {
     FILE* inven;
     struct item invenItem;
-    inven = fopen("inventory.csv", "a+");
+    inven = fopen("Inventory_ST_NoBOM.csv", "a+");
 
     printf("-----------------------------\n");
     printf("   ADDING INVENTORY ITEM\n");

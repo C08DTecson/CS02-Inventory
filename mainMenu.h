@@ -1,3 +1,4 @@
+#include "addItemV3.h"
 //#include "addItemV2.h"
 //#include "searchFunc.h"
 #include "searchItem.h"
@@ -36,6 +37,8 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem();
+
+	//        addItemV3
 				// Display();
 				// exportCsv();
 				running = 2;
@@ -43,9 +46,50 @@ int menuMain()
 
 			case 'b':
 			case 'B':
+
 				system("cls");
                 updateItem();
 				running = 2;
+
+        //Estoconing
+				system("cls");
+        		updateItem();
+				
+				/*
+				printf("Select Inventory Item: ");
+				char userInU[32];
+				char userInA[32];
+				scanf("%s", &userInU);
+				strcat(userInA,"\"");
+				strcat(userInA,userInU);
+				strcat(userInA,"\"");
+
+				strncpy(userInU,&userInA[3],7);
+				userInU[7] = '\0';
+				
+//				printf("%s\n",userInU);
+
+				// searchItem();
+				struct Node* sample = malloc(sizeof(struct Node));
+				// char uSet[32]= "\"14105\"";
+				setId(sample,userInU);
+				sample = getNode(sample);
+//				printf("%s",sample->Id);
+
+//				printf("%sSID\n",sample->Id);
+				
+				if(strcmp(sample->Id, "\"99999\""))
+				{
+//					printf("pass a\n");
+					printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel View\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
+				}
+				else
+				{
+					printf("This does not exist\n");
+//					printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel View\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
+				}
+				*/
+
 				break;
 
 			case 'c':
@@ -53,8 +97,16 @@ int menuMain()
 				printf("Viewing Inventory List\n");
 				
 				// struct Node* head = getHead();
-				head = mergeSort(head);	
-				print(head);
+				if(head->next==NULL)
+				{
+					printf("This list is empty");
+				}
+				else
+				{
+					head = mergeSort(head);	
+					print(head);
+				}
+				
 				// Display();
 				running = 2;
 				break;
