@@ -111,7 +111,8 @@ void importCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("Inventory_ST_NoBOM1.csv", "r");
+
+    fp = fopen("Inventory_ST_NoBOM.csv", "r");
     const char s[2] = ",";
 
     char *token;
