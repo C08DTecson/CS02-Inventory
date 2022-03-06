@@ -13,7 +13,7 @@ int strcmp (const char* str1, const char* str2);
 void initializeList()
 {
     head = NULL;
-    head = addToEmpty(head,0,"99999","Desc","Quantity","DateExp","Price\n");
+    head = addToEmpty(head,0,"\"99999\"","Desc","Quantity","DateExp","Price\n");
 
 }
 
@@ -43,19 +43,19 @@ struct Node* getNode(struct Node* temp)
 
     while (strcmp(ptr->Id, temp->Id))
     {
-        // printf("%s ,- %s\n",ptr->Id,temp->Id);
+//        printf("%s ,- %s\n",ptr->Id,temp->Id);
         if (ptr->next==NULL)
         {
             ptr=head;
-            printf("This ID does not exist\n");
+//            printf("This ID does not exist\n");
             break;
         }
-        if (ptr->Id == temp->Id)
-        {   
-            break;
-        }
+//        if (strcmp(ptr->Id, temp->Id))
+//        {   
+//            break;
+//        }
         ptr=ptr->next;
-}
+	}
 
     // int a;   
     // sscanf(ptr->Id, "%d", &a);//parses address into int
@@ -292,6 +292,7 @@ struct Node *split(struct Node *head);
 
 struct Node *merge(struct Node *first, struct Node *second)
 {
+//	printf("Merge\n");
     // If first linked list is empty
     if (!first)
         return second;
@@ -302,9 +303,17 @@ struct Node *merge(struct Node *first, struct Node *second)
  
     int listVal1;
     int listVal2;
+    
+    char str1[32];
+    char str2[32];
+    
+    strncpy(str1,&first->Id[1],5);
+    strncpy(str2,&second->Id[1],5);
 
-    sscanf(first->Id, "%d", &listVal1);//parses address into int
-    sscanf(second->Id, "%d", &listVal2);//parses address into int
+    sscanf(str1, "%d", &listVal1);//parses address into int
+    sscanf(str2, "%d", &listVal2);//parses address into int
+//    printf("%s<--->%s\n",str2,str1);
+//    printf("%d[===]%d\n",&listVal2,&listVal1);
 
     // Pick the smaller value
     if (listVal1 < listVal2)
@@ -325,6 +334,7 @@ struct Node *merge(struct Node *first, struct Node *second)
 
 struct Node *mergeSort(struct Node *head)
 {
+//	printf("Mergesorting\n");
     if (!head || !head->next)
         return head;
     struct Node *second = split(head);
@@ -332,7 +342,6 @@ struct Node *mergeSort(struct Node *head)
     // Recur for left and right halves
     head = mergeSort(head);
     second = mergeSort(second);
- 
     // Merge the two sorted halves
     return merge(head,second);
 }
@@ -342,9 +351,11 @@ void print(struct Node *head)
     // printf("Forward Traversal using next pointer\n");
     while (head)
     {
-        // printf("%s,%s,%s,%s,%s",head->Id,head->Desc,head->Quantity,head->DateExp,head->Price);
-        temp = head;
-        head = head->next;
+//        printf("%s,%s,%s,%s,%s",head->Id,head->Desc,head->Quantity,head->DateExp,head->Price);
+		temp = head;
+    	head = head->next;
+        	
+        
     }
     // printf("\nBackward Traversal using prev pointer\n");
     while (temp)
