@@ -133,6 +133,7 @@ int updateItem()
                     case 'y':
                         lengthStringU = lengthStringU + 7;
                         verifyUNo = 1;
+                        system("cls");
                         break;
 
                     case 'N':

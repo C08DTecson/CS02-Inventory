@@ -8,10 +8,6 @@ int searchItem();
 
 int searchItem()
 {
-    printf("-----------------------------\n");
-	printf("  SEARCHING INVENTORY ITEM\n");
-	printf("-----------------------------\n");
-    
     int loopSearch=0, flushScan, verifyNo=0, lengthString=0;
     char verify[2];
     char userInI[32];
@@ -25,6 +21,9 @@ int searchItem()
 	// char uSet[32]= "\"14105\"";
     while(loopSearch != 1)
     {
+        printf("-----------------------------\n");
+	    printf("  SEARCHING INVENTORY ITEM\n");
+	    printf("-----------------------------\n");
         printf("Select Inventory Item: ");
         memset(userInU,0,strlen(userInU));
         scanf("%5s", &userInU);
@@ -56,6 +55,7 @@ int searchItem()
                     case 'y':
                         lengthString = lengthString + 7;
                         verifyNo = 1;
+                        system("cls");
                         break;
 
                     case 'N':
