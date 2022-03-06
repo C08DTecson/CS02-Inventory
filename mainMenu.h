@@ -1,6 +1,7 @@
 //#include "addItemV2.h"
 //#include "searchFunc.h"
 #include "searchItem.h"
+#include "updateItem.h"
 
 int menuMain();
 char userIn[2];
@@ -16,6 +17,7 @@ int menuMain()
 	printf("[A] Add Inventory Item\n");
 	printf("[B] Search Inventory Item\n");
 	printf("[C] View Inventory List\n");
+	printf("[D] Update Inventory Item\n");
 	printf("[X] Exit System\n\n");
 	printf("Please enter your desired function:");
 
@@ -55,7 +57,8 @@ int menuMain()
             case 'd':
             case 'D':
                 system("cls");
-                //updateItem();
+                updateItem();
+				break;
 
 			case 'x':
 			case 'X':
