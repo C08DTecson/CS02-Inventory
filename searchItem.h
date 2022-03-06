@@ -46,7 +46,7 @@ int searchItem()
         }
         do
         {
-            printf("Would you like to search for another item [Y/N]?\n");
+            printf("\nWould you like to search for another item [Y/N]? ");
             scanf("%1s", &verify);
             while ((flushScan = fgetc(stdin)) != '\n' && flushScan != EOF); /* Flush stdin */
             switch (verify[0])
