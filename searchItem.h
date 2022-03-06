@@ -28,6 +28,7 @@ int searchItem()
         printf("Select Inventory Item: ");
         memset(userInU,0,strlen(userInU));
         scanf("%5s", &userInU);
+        while ((flushScan = fgetc(stdin)) != '\n' && flushScan != EOF); /* Flush stdin */
 	    strcat(userInA,"\"");
 	    strcat(userInA,userInU);
 	    strcat(userInA,"\"");

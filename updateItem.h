@@ -7,8 +7,8 @@ int updateItem()
 	printf("   UPDATING INVENTORY ITEM\n");
 	printf("-----------------------------\n");
 
-    int loopSearchU = 0, flushScan, verifyUNo=0, lengthStringU=0;
-    int chooseItem, loopUpdate=0, loopAnotherUpdate=0;
+    int chooseItem, flushScan, verifyUNo=0, lengthStringU=0;
+    int loopSearchU = 0, loopUpdate=0, detailUpdate=0, loopAnotherUpdate=0, loopVerifyU=0;
     char verifyU[2], update[2];
     char userInX[32];
 	char userInY[32];
@@ -43,40 +43,56 @@ int updateItem()
         }
         do
         {
-            printf("What detail would you like to update [0-3]?\n");
-            scanf("%1d", &chooseItem);
-            while ((flushScan = fgetc(stdin)) != '\n' && flushScan != EOF); /* Flush stdin */
-            switch (chooseItem)
+            do
             {
-              case 0:
-                    printf("---Updating Description---\n");
-                    printf("Enter Data: ");
-                    scanf("%[^\n]s", dataIn);
-                    printf("%s\n", dataIn);
-                    setDes(sampleU, dataIn);
-                    break;
-                case 1:
-                    printf("---Updating Quantity---\n");
-                    printf("Enter Data: ");
-                    scanf("%[^\n]s", dataIn);
-                    printf("%s\n", dataIn);
-                    setQuantity(sampleU, dataIn);
-                 break;
-                case 2:
-                    printf("---Updating Expiry Date---\n");
-                    printf("Enter Data: ");
-                    scanf("%[^\n]s", dataIn);
-                    printf("%s\n", dataIn);
-                    setExp(sampleU, dataIn);
-                    break;
-                case 3:
-                    printf("---Updating Price---\n");
-                    printf("Enter Data: ");
-                    scanf("%[^\n]s", dataIn);
-                    printf("%s\n", dataIn);
-                    setPrice(sampleU, dataIn);
-                    break;
-            }
+                printf("What detail would you like to update [0-3]?\n");
+                scanf("%1d", &chooseItem);
+                while ((flushScan = fgetc(stdin)) != '\n' && flushScan != EOF); /* Flush stdin */
+                if (chooseItem >= 0 && chooseItem < 4)
+                {
+                    switch (chooseItem)
+                    {
+                        case 0:
+                            printf("---Updating Description---\n");
+                            printf("Enter Data: ");
+                            scanf("%[^\n]s", dataIn);
+                            printf("%s\n", dataIn);
+                            setDes(sampleU, dataIn);
+                            break;
+                        case 1:
+                            printf("---Updating Quantity---\n");
+                            printf("Enter Data: ");
+                            scanf("%[^\n]s", dataIn);
+                            printf("%s\n", dataIn);
+                            setQuantity(sampleU, dataIn);
+                            break;
+                        case 2:
+                            printf("---Updating Expiry Date---\n");
+                            printf("Enter Data: ");
+                            scanf("%[^\n]s", dataIn);
+                            printf("%s\n", dataIn);
+                            setExp(sampleU, dataIn);
+                            break;
+                        case 3:
+                            printf("---Updating Price---\n");
+                            printf("Enter Data: ");
+                            scanf("%[^\n]s", dataIn);
+                            printf("%s\n", dataIn);
+                            setPrice(sampleU, dataIn);
+                            break;
+                    }
+
+                    detailUpdate = 1;
+                }
+                else
+                {
+                    printf("Invalid Input. Please Try Again!");
+                    detailUpdate = 2;
+                }
+                
+            } while (detailUpdate !=1);
+            
+            
             do
             {
                 printf("Would you like to update another detail [Y/N]?\n");

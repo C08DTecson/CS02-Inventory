@@ -9,15 +9,15 @@ bool running = true;
 
 int menuMain()
 {
-
+    system("cls");
 	printf("-----------------------------\n");
 	printf("  GROUP 1 INVENTORY SYSTEM\n");
 	printf("-----------------------------\n");
 	printf("MAIN MENU\n");
 	printf("[A] Add Inventory Item\n");
-	printf("[B] Search Inventory Item\n");
+	printf("[B] Update Inventory Item\n");
 	printf("[C] View Inventory List\n");
-	printf("[D] Update Inventory Item\n");
+	printf("[D] Search Inventory Item\n");
 	printf("[X] Exit System\n\n");
 	printf("Please enter your desired function:");
 
@@ -41,7 +41,7 @@ int menuMain()
 			case 'b':
 			case 'B':
 				system("cls");
-                searchItem();
+                updateItem();
 				break;
 
 			case 'c':
@@ -57,7 +57,7 @@ int menuMain()
             case 'd':
             case 'D':
                 system("cls");
-                updateItem();
+				searchItem();
 				break;
 
 			case 'x':
