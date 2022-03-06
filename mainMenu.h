@@ -1,4 +1,3 @@
-
 #include "addItemV3.h"
 //#include "addItemV2.h"
 //#include "searchFunc.h"
@@ -7,27 +6,27 @@
 
 int menuMain();
 char userIn[2];
-bool running = true;
+
 
 int menuMain()
 {
-
-    system("cls");
-
-	printf("-----------------------------\n");
-	printf("  GROUP 1 INVENTORY SYSTEM\n");
-	printf("-----------------------------\n");
-	printf("MAIN MENU\n");
-	printf("[A] Add Inventory Item\n");
-	printf("[B] Update Inventory Item\n");
-	printf("[C] View Inventory List\n");
-	printf("[D] Search Inventory Item\n");
-
-	printf("[X] Exit System\n\n");
-	printf("Please enter your desired function:");
-
-	do
+	int running = 0;
+    do
 	{
+		system("cls");
+		printf("-----------------------------\n");
+		printf("  GROUP 1 INVENTORY SYSTEM\n");
+		printf("-----------------------------\n");
+		printf("MAIN MENU\n");
+		printf("[A] Add Inventory Item\n");
+		printf("[B] Update Inventory Item\n");
+		printf("[C] View Inventory List\n");
+		printf("[D] Search Inventory Item\n");
+		printf("[X] Exit System\n\n");
+		printf("Please enter your desired function:");
+
+	
+		
 		gets(userIn);
 		if (strlen(userIn) == 1)
 		{
@@ -38,15 +37,20 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem();
-	//        addItemV3
 
+	//        addItemV3
 				// Display();
 				// exportCsv();
-
+				running = 2;
 				break;
 
 			case 'b':
 			case 'B':
+
+				system("cls");
+                updateItem();
+				running = 2;
+
         //Estoconing
 				system("cls");
         		updateItem();
@@ -85,11 +89,13 @@ int menuMain()
 //					printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel View\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
 				}
 				*/
+
 				break;
 
 			case 'c':
 			case 'C':
 				printf("Viewing Inventory List\n");
+				
 				// struct Node* head = getHead();
 				if(head->next==NULL)
 				{
@@ -102,25 +108,26 @@ int menuMain()
 				}
 				
 				// Display();
+				running = 2;
 				break;
 
             case 'd':
             case 'D':
                 system("cls");
 				searchItem();
+				running = 2;
 				break;
-
 
 			case 'x':
 			case 'X':
 				printf("Thank you for using the G1 Inventory System!\n");
+				running = 1;
 				break;
 
 			default:
 				printf("Invalid Input, please try again.\n");
 				continue;
 			}
-			break;
 		}
 
 		else
@@ -128,7 +135,7 @@ int menuMain()
 			printf("Invalid input, please try again.\n");
 		}
 		
-		;//exits the do while loop when a valid input is selected.
-	} while (running == true); //To keep entering an input until it is valid
+		//exits the do while loop when a valid input is selected.
+	} while (running != 1); //To keep entering an input until it is valid
 
 }
