@@ -1,5 +1,4 @@
 #include "addItemV2.h"
-#include "searchFunc.h"
 
 int menuMain();
 char userIn[2];
@@ -20,7 +19,6 @@ int menuMain()
 
 	do
 	{
-		
 		gets(userIn);
 		if (strlen(userIn) == 1)
 		{
@@ -31,8 +29,11 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem();
+        addItemV3
+
 				// Display();
 				// exportCsv();
+
 				break;
 
 			case 'b':
@@ -61,7 +62,8 @@ int menuMain()
 			case 'c':
 			case 'C':
 				printf("Viewing Inventory List\n");
-				
+
+
 				// struct Node* head = getHead();
 				head = mergeSort(head);	
 				print(head);
