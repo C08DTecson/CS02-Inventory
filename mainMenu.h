@@ -1,4 +1,9 @@
+
 #include "addItemV3.h"
+//#include "addItemV2.h"
+//#include "searchFunc.h"
+#include "searchItem.h"
+#include "updateItem.h"
 
 int menuMain();
 char userIn[2];
@@ -7,13 +12,17 @@ bool running = true;
 int menuMain()
 {
 
+    system("cls");
+
 	printf("-----------------------------\n");
 	printf("  GROUP 1 INVENTORY SYSTEM\n");
 	printf("-----------------------------\n");
 	printf("MAIN MENU\n");
 	printf("[A] Add Inventory Item\n");
-	printf("[B] Search Inventory Item\n");
+	printf("[B] Update Inventory Item\n");
 	printf("[C] View Inventory List\n");
+	printf("[D] Search Inventory Item\n");
+
 	printf("[X] Exit System\n\n");
 	printf("Please enter your desired function:");
 
@@ -38,6 +47,10 @@ int menuMain()
 
 			case 'b':
 			case 'B':
+        //Estoconing
+				//system("cls");
+        //updateItem();
+
 				printf("Select Inventory Item: ");
 				char userInU[32];
 				char userInA[32];
@@ -75,8 +88,6 @@ int menuMain()
 			case 'c':
 			case 'C':
 				printf("Viewing Inventory List\n");
-
-
 				// struct Node* head = getHead();
 				if(head->next==NULL)
 				{
@@ -89,6 +100,12 @@ int menuMain()
 				}
 				
 				// Display();
+				break;
+
+            case 'd':
+            case 'D':
+                system("cls");
+				searchItem();
 				break;
 
 
