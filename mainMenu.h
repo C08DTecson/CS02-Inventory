@@ -38,7 +38,7 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem();
-//        addItemV3
+	//        addItemV3
 
 				// Display();
 				// exportCsv();
@@ -48,9 +48,10 @@ int menuMain()
 			case 'b':
 			case 'B':
         //Estoconing
-				//system("cls");
-        //updateItem();
-
+				system("cls");
+        		updateItem();
+				
+				/*
 				printf("Select Inventory Item: ");
 				char userInU[32];
 				char userInA[32];
@@ -83,6 +84,7 @@ int menuMain()
 					printf("This does not exist\n");
 //					printf("ID:%s\n[0]Description: %s\n[1]Quantity: %s\n[2]Best Before Date: %s\n[3]Price: %s\n[X]Cancel View\n",sample->Id,sample->Desc,sample->Quantity,sample->DateExp,sample->Price);
 				}
+				*/
 				break;
 
 			case 'c':

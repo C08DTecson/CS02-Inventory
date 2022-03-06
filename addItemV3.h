@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
-#include "linkedListUI.h"
+//#include "linkedListUI.h"
 
 int addItem();
 int priceCheck, existID, num, idInt;
