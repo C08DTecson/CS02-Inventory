@@ -11,6 +11,7 @@ int main()
     initializeList();
     importCsv();
     
+
     // struct Node* head = getHead();
     // head = mergeSort(head);
     // print(head);
@@ -25,9 +26,6 @@ int main()
     // sample->Id[5]= '\0';
     // printf(">>>%s<<<\n",sample->Id);
 
-    
-    
-    
     // Display();
     // exportCsv();
 
