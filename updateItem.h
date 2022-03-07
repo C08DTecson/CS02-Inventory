@@ -11,9 +11,6 @@ int updateItem()
 
     int chooseItem, flushScan, verifyUNo=0, lengthStringU=0;
     int loopSearchU = 0, loopUpdate=0, detailUpdate=0, loopAnotherUpdate=0, loopVerifyU=0;
-    char dataYr[255], dataMo[255], dataDay[255];
-    int dataMoI, dataDayI;
-    int mmHolder, ddHolder, yyHolder, scanDate, x, check;
     char verifyU[2], update[2];
     char userInX[32];
 	char userInY[32];
