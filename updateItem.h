@@ -71,6 +71,7 @@ int updateItem()
                         case 2:
                             printf("---Updating Expiry Date---\n");
                             printf("Enter Product Expiry(YYYY-MM-DD):\n");
+                            scanf("%[0-9,-]s", dataIn);
                             //printf("%s\n", dataIn);
                             setExp(sampleU, dataIn);
                             break;
