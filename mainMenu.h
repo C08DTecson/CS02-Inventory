@@ -11,6 +11,7 @@ char userIn[2];
 int menuMain()
 {
 	int running = 0;
+	char verify1[2];
     do
 	{
 		system("cls");
@@ -94,20 +95,29 @@ int menuMain()
 
 			case 'c':
 			case 'C':
-				printf("Viewing Inventory List\n");
 				
-				// struct Node* head = getHead();
-				if(head->next==NULL)
+				do
 				{
-					printf("This list is empty");
-				}
-				else
-				{
-					head = mergeSort(head);	
-					print(head);
-				}
+					
+					printf("Viewing Inventory List\n");
+					// struct Node* head = getHead();
+					if(head->next==NULL)
+					{
+						printf("This list is empty");
+					}
+					else
+					{
+						head = mergeSort(head);	
+						print(head);
+					}
+					
+					// Display();
+					printf("[Input X to close list]");
+					scanf("%1s", &verify1);
+					
+					
+				}while(strcmp(&verify1[0],"x"));
 				
-				// Display();
 				running = 2;
 				break;
 
