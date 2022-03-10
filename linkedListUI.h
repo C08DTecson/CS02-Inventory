@@ -47,7 +47,7 @@ struct Node* getNode(struct Node* temp)
         if (ptr->next==NULL)
         {
             ptr=head;
-//            printf("This ID does not exist\n");
+            printf("This ID does not exist\n");
             break;
         }
 //        if (strcmp(ptr->Id, temp->Id))
@@ -175,7 +175,8 @@ void importCsv()
                 break;
             case 4:
                 strncpy(Price,&token[0],strlen(token));
-                Price[strlen(token)-1] = '\n';
+//                Price[strlen(token)-2] = '\"';
+				Price[strlen(token)-1] = '\n';
                 Price[strlen(token)] = '\0';
 
                 setPrice(ptr,Price);
@@ -277,14 +278,41 @@ void exportCsv()
 {
     char str[255];
     FILE *fp;
-    fp = fopen("sample1.csv", "w");
-
+    fp = fopen("Inventory_ST_NoBOM.csv", "w");
+	/*
     ptr = head->next;
     while (ptr != NULL)
     {
         fprintf(fp,"%d,%s,%s,%s,%s,%s",ptr->data,ptr->Id,ptr->Desc,ptr->Quantity,ptr->DateExp,ptr->Price);
         ptr = ptr->next;
     }
+    */
+    struct Node *temp = head;
+    // printf("Forward Traversal using next pointer\n");
+    
+    while (head)
+    {	
+    	if(strcmp(head->Id,"\"99999\"")){
+    		fprintf(fp,"%s,%s,%s,%s,%s",head->Id,head->Desc,head->Quantity,head->DateExp,head->Price);
+			temp = head;
+	    	head = head->next;	
+//    		break;
+		}
+		else{
+			
+	    	printf("last call");
+    		head = head->next;
+		}
+      	
+        	
+        
+    }
+    // printf("\nBackward Traversal using prev pointer\n");
+//    while (temp)
+//    {
+//        fprintf(fp,"%s,%s,%s,%s,%s",temp->Id,temp->Desc,temp->Quantity,temp->DateExp,temp->Price);
+//        temp = temp->prev;
+//    }
     fclose(fp);
 }
 

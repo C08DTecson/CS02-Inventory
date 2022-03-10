@@ -36,10 +36,10 @@ int updateItem()
         //printf("%s\n", userInY);
         
         //if additional characters are received, change value of 0 in the next line.
-	    strncpy(userInX,&userInY[0+lengthStringU],(7+lengthStringU)); 
+	    strncpy(userInX,&userInY[3+lengthStringU],(7+lengthStringU)); 
         //printf("%s\n", userInX);
 	    userInX[7] = '\0';
-        //printf("%s\n", userInX);
+        printf("%s\n", userInX);
         struct Node* sampleU = malloc(sizeof(struct Node));
         setId(sampleU,userInX);
 	    sampleU = getNode(sampleU);

@@ -20,7 +20,7 @@ typedef struct item
     char id[255];
     char mm[255], dd[255], yy[255];
     float price;
-    char desc[99];
+    char desc[101];
 
 } item;
 
@@ -157,7 +157,7 @@ int addItem()
                 mmHolder = atoi(invenItem.mm);
                 for (x = 0; x != 2; x++)
                 {
-                    if ((isdigit(invenItem.mm[x]) == 0) || strlen(invenItem.dd) < 2 || (mmHolder > 12))
+                    if ((isdigit(invenItem.mm[x]) == 0) || strlen(invenItem.mm) < 2 || (mmHolder > 12))
                     {
                         printf("Invalid Month, please try again.\n");
                         break;

@@ -38,8 +38,10 @@ int menuMain()
 				printf("Adding Inventory Item\n");
 				system("cls");
 				addItem();
+				initializeList();
+    			importCsv();
 
-	//        addItemV3
+				// addItemV3
 				// Display();
 				// exportCsv();
 				running = 2;
@@ -53,8 +55,8 @@ int menuMain()
 				running = 2;
 
         //Estoconing
-				system("cls");
-        		updateItem();
+//				system("cls");
+//        		updateItem();
 				
 				/*
 				printf("Select Inventory Item: ");
