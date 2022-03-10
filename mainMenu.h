@@ -54,9 +54,10 @@ int menuMain()
                 updateItem();
 				running = 2;
 
-        //Estoconing
-//				system("cls");
-//        		updateItem();
+        		//Estoconing
+				//system("cls");
+        		//updateItem();
+
 				
 				/*
 				printf("Select Inventory Item: ");
